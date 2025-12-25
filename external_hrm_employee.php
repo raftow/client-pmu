@@ -10,9 +10,9 @@
                 $data[] = $employee_num;
                 
                 $api_url_list = [];
-                $api_url_list[] = "https://commws.tvtc.gov.sa/RestService/GetEmployeeDetail";
-                $api_url_list[] = "http://commwstst.tvtc.gov.sa/RestService/GetEmployeeDetail";
-                $api_url_list[] = "http://commwsdev.tvtc.gov.sa/RestService/GetEmployeeDetail";
+                $api_url_list[] = AfwSession::config('hrm_get_employee_api_1', 'API-1-NOT-DEFINED');
+                $api_url_list[] = AfwSession::config('hrm_get_employee_api_2', 'API-2-NOT-DEFINED');
+                $api_url_list[] = AfwSession::config('hrm_get_employee_api_3', 'API-3-NOT-DEFINED');
 
                 $file_dir_name = dirname(__FILE__);
 
@@ -45,7 +45,7 @@
                         return array(false, $error_msg, null);
                 } 
                 
-                $resEmployee['email'] = $resEmployee['login'] . "@tvtc.gov.sa"; 
+                $resEmployee['email'] = $resEmployee['login'] . "@ttc.gov.sa"; 
                 //die("resEmployee = ".var_export($resEmployee,true));
                 $resEmployee_correct = ($resEmployee["login"]==$username);
                 if($resEmployee and $resEmployee_correct) 
@@ -79,7 +79,7 @@
                         }
                         
                         
-                        if($resEmployee['company']=='TVTC') $resEmployee['company_id'] = 1;
+                        if($resEmployee['company']=='ttc') $resEmployee['company_id'] = 1;
                         else 
                         {
                                 // create orgunit of company
